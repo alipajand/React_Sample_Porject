@@ -1,6 +1,7 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import bookReducer, { addBook, deleteBook, editBook } from './bookSlice';
+import { Book } from '@/interface/book';
 
 describe('Book Reducer', () => {
   let store: Store;
@@ -14,7 +15,7 @@ describe('Book Reducer', () => {
   });
 
   it('should handle adding a book', () => {
-    const bookToAdd = {
+    const bookToAdd: Book = {
       id: 'new-id',
       name: 'New Book',
       price: 200,
@@ -30,7 +31,7 @@ describe('Book Reducer', () => {
   });
 
   it('should handle editing a book', () => {
-    const existingBook = {
+    const existingBook: Book = {
       id: 'existing-id',
       name: 'Existing Book',
       price: 150,
@@ -38,7 +39,7 @@ describe('Book Reducer', () => {
       description: 'An existing book'
     };
 
-    const updatedBook = {
+    const updatedBook: Book = {
       id: 'existing-id',
       name: 'Updated Book',
       price: 175,
@@ -55,7 +56,7 @@ describe('Book Reducer', () => {
   });
 
   it('should handle deleting a book', () => {
-    const bookToDelete = {
+    const bookToDelete: Book = {
       id: 'delete-id',
       name: 'Book to Delete',
       price: 120,
